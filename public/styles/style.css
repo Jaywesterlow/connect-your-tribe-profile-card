@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Montserrat';
+  color: #fff;
+  background-color: #1c1c1c;
+  overflow: hidden;
+}
+
+article {
+  width: 35rem;
+  height: 22rem;
+  padding: 2rem;
+  border-radius: 3rem;
+  transform: skewY(-10deg);
+  position: relative;
+  transition-timing-function: ease;
+  transition: 0.9s;
+}
+
+#article-1 {
+  background: linear-gradient(135deg, #7a10399f, #4509209f);
+}
+
+.article-1__top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  margin: 0 8px 0 0;
+  font-size: 3rem;
+}
+
+.article-1__top img {
+  border: 4px solid #1c1c1c;
+  border-radius: 1rem;
+  width: 10rem;
+}
+
+.article-1__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+svg {
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+#article-2 {
+  background: linear-gradient(135deg, #942d51a2, #6d213ca1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: end;
+}
+
+.code-grid {
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr; 
+  gap: 1.5rem 1.5rem; 
+  grid-template-areas: 
+    "html-img css-img js-img"
+    "html-txt css-txt js-txt";
+  height: 91%;
+}
+
+#article-2 img, #article-2 p {
+  margin: auto;
+  text-align: center;
+  margin-top: 11px;
+}
+
+.html-img {
+ grid-area: html-img;
+}
+
+.css-img {
+  grid-area: css-img;
+}
+
+.js-img {
+  grid-area: js-img;
+}
+
+.html-txt {
+  grid-area: html-txt;
+}
+
+.css-txt {
+  grid-area: css-txt;
+}
+
+.js-txt {
+  grid-area: js-txt;
+}
+
+
+#article-2 img {
+  height: 8rem;
+}
+
+.article-1__front {
+  z-index: 1;
+  top: 0px;
+  right: 205px;
+}
+
+.article-1__back {
+  z-index: -1;
+  top: -50px;
+  right: 355px;
+}
+
+.article-2__front {
+  z-index: 1;
+  bottom: 0px;
+  left: 355px;
+}
+
+.article-2__back {
+  z-index: -1;
+  bottom: 50px;
+  left: 205px;
+}

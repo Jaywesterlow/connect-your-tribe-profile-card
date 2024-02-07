@@ -1,14 +1,35 @@
 <%- include('./partials/head') %>
 
-<article>
-  <header>
-    <h1>Hallo</h1>
-    <p>mijn naam is</p>
-  </header>
+<article id="article-2" class="article-2__back">
 
-  <p><%= data.name %></p>
+  <div class="code-grid">
+    <img class="html-img" src="assets/HTML5_logo_and_wordmark.svg.png" alt="html-logo">
+    <img class="css-img" src="assets/CSS3_logo_and_wordmark.svg.png" alt="css-logo">
+    <img class="js-img" src="assets/JavaScript-Logo.png" alt="js-logo">
 
-  <footer></footer>
+    <p class="html-txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p class="css-txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p class="js-txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+  </div>
+
+    <svg onclick="switchArt()" xmlns="http://www.w3.org/2000/svg" height="1=em" viewBox="0 0 512 512"><path d="M0 224c0 17.7 14.3 32 32 32s32-14.3 32-32c0-53 43-96 96-96H320v32c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l64-64c12.5-12.5 12.5-32.8 0-45.3l-64-64c-9.2-9.2-22.9-11.9-34.9-6.9S320 19.1 320 32V64H160C71.6 64 0 135.6 0 224zm512 64c0-17.7-14.3-32-32-32s-32 14.3-32 32c0 53-43 96-96 96H192V352c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9l-64 64c-12.5 12.5-12.5 32.8 0 45.3l64 64c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V448H352c88.4 0 160-71.6 160-160z"/></svg>
+
+</article>
+
+<article id="article-1" class="article-1__front">
+
+  <div class="article-1__top">
+    <h1>Jaymar<br>Westerlow</h1>
+    <img src="assets/portrait.jpg" alt="portrait">
+  </div>
+
+  <div class="article-1__bottom">
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam maiores ipsam doloremque omnis quibusdam illo aspernatur quaerat mollitia praesentium. Nihil corrupti a voluptate dolor repudiandae fugit, beatae ea! Officiis, ipsam?
+    </p>
+    <svg onclick="switchArt()" xmlns="http://www.w3.org/2000/svg" height="1=em" viewBox="0 0 512 512"><path d="M0 224c0 17.7 14.3 32 32 32s32-14.3 32-32c0-53 43-96 96-96H320v32c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l64-64c12.5-12.5 12.5-32.8 0-45.3l-64-64c-9.2-9.2-22.9-11.9-34.9-6.9S320 19.1 320 32V64H160C71.6 64 0 135.6 0 224zm512 64c0-17.7-14.3-32-32-32s-32 14.3-32 32c0 53-43 96-96 96H192V352c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9l-64 64c-12.5 12.5-12.5 32.8 0 45.3l64 64c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V448H352c88.4 0 160-71.6 160-160z"/></svg>
+  </div>
+  
 </article>
 
 <%- include('./partials/foot') %>
