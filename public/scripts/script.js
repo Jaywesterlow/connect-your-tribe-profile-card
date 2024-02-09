@@ -1,9 +1,23 @@
-function switchArt() {
-    var art1 =document.getElementById("article-1"); 
-    var art2 = document.getElementById("article-2");
 
-    art1.classList.toggle("article-1__front")
-    art1.classList.toggle("article-1__back")
-    art2.classList.toggle("article-2__front")
-    art2.classList.toggle("article-2__back")
+// const alternateContent = document.getElementById("card");
+const 
+cardContent = document.querySelectorAll(".card-item"),
+alternateButton = document.querySelector("button"),
+card = document.getElementById("card");
+
+
+
+document.addEventListener("DOMContentLoaded", fadeIn);
+alternateButton.addEventListener("click", alternateCard);
+
+function fadeIn(){
+  cardContent.forEach((i) => {
+    i.classList.remove('fade-in')
+  })
 }
+
+function alternateCard(){
+card.classList.toggle("alternate")
+}
+
+console.log(alternateButton);

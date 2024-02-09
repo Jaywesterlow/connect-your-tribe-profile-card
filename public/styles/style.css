@@ -7,15 +7,27 @@
 :root {
   --bg-color: #131C1D;
   --card-clr: #25373A;
+  --alt-card-clr: #3E1929;
 
-  --clr-1: #3C5F64;
+  --clr-1: #925fbb;
   --clr-2: #42858C;
   --clr-3: #5DA399;
   --clr-4: #60B8B2;
   --clr-5: #63CCCA;
+  --clr-6: #52EEE5;
+  --clr-7: #44EBB5;
+  
+  --alt-clr-1: #925fbb;
+  --alt-clr-2: #8c4242;
+  --alt-clr-3: #a35d5d;
+  --alt-clr-4: #b86060;
+  --alt-clr-5: #cc6363;
+  --alt-clr-6: #ee5252;
+  --alt-clr-7: #eb4444;
 
-  --var-clr-1: #52EEE5;
-  --var-clr-2: #44EBB5;
+  --transition-normal: all 1s ease;
+  --transition-delayed: all 1s .5s ease;
+
 }
 
 html {
@@ -26,6 +38,7 @@ body {
   height: 100vh;
   font-family: "Montserrat";
   color: #fff;
+  text-shadow: 0 0 10px #fff;
   overflow: hidden;
   background-color: var(--bg-color);
   display: grid;
@@ -49,12 +62,7 @@ body {
   background-color: var(--card-clr);
   border-radius: 1rem;
   position: relative;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
+  transition: 1s all ease-out;
 }
 
 #card::before, #card::after {
@@ -65,8 +73,8 @@ body {
   border-radius: 1.2rem;
   background: conic-gradient(
     from var(--gradient-angle),
-    var(--var-clr-2),
-    var(--var-clr-1),
+    var(--clr-7),
+    var(--clr-6),
     var(--clr-5),
     var(--clr-4),
     var(--clr-3),
@@ -77,19 +85,129 @@ body {
     var(--clr-3),
     var(--clr-4),
     var(--clr-5),
-    var(--var-clr-1),
-    var(--var-clr-2));
+    var(--clr-6),
+    var(--clr-7));
   animation: rotation 10s linear infinite;
-  }
+  transition: 5s all ease-out;
+}
+
+#card.alternate {
+  background-color: var(--alt-card-clr);
+  transition: 1s all ease-out;
+}
+
+#card.alternate::before, #card.alternate::after {
+  background: conic-gradient(
+    from var(--gradient-angle),
+    var(--alt-clr-7),
+    var(--alt-clr-6),
+    var(--alt-clr-5),
+    var(--alt-clr-4),
+    var(--alt-clr-3),
+    var(--alt-clr-2),
+    var(--alt-clr-1),
+    var(--alt-clr-1),
+    var(--alt-clr-2),
+    var(--alt-clr-3),
+    var(--alt-clr-4),
+    var(--alt-clr-5),
+    var(--alt-clr-6),
+    var(--alt-clr-7));
+    transition: 5s all ease-out;
+}
 
 #card::after {
   filter: blur(3.5rem);
 }
 
+.card-content {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+img {
+  position: absolute;
+  transition: .6s .3s all ease-out;
+  border-radius: 100%;
+  width: 50%;
+  top: 10%;
+  opacity: 1;
+
+  &.fade-in {
+    transition: .8s all ease-out;
+    top: 15%;
+    opacity: 0;
+  }
+}
+
 h1 {
-  margin-bottom: 1.5rem;
+  color: var(--clr-6);
+  text-shadow: 0 0 10px var(--clr-6);
+  position: absolute;
+  transition: .6s  .2s all ease-out;
+  top: 50%;
+  opacity: 1;
+
+  &.fade-in {
+    transition: .8s .2s all ease-out;
+    top: 55%;
+    opacity: 0;
+  }
+} 
+
+#card.alternate h1 {
+  color: var(--alt-clr-6);
+  text-shadow: 0 0 10px var(--alt-clr-6);
 }
 
 p {
-  
+  max-width: calc(100% - 2rem);
+  position: absolute;
+  transition: .6s .1s all ease-out;
+  top: 60%;
+  opacity: 1;
+
+  &.fade-in {
+    transition: .8s .4s all ease-out;
+    top: 65%;
+    opacity: 0;
+  }
+}  
+
+button {
+  position: absolute;
+  transition: .6s all ease-out;
+  bottom: 1rem;
+  left: 85%;
+  background: none;
+  border: none;
+  border-radius: 100%;
+  opacity: 1;
+  cursor: pointer;
+
+  &.fade-in {
+    transition: .8s .6s all ease-out;
+    bottom: 0rem;
+    opacity: 0;
+  }
+}
+
+#card.alternate button {
+  left: 5%;
+  right: auto;
+  transform: rotate(-180deg);
+  transition: .8s all ease-out;
+}
+
+i {
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 0 0 10px #fff;
 }

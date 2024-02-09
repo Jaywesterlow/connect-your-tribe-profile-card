@@ -3,12 +3,32 @@
 
 
 <div id="card">
-  <h1><%= data.name + " " + data.surname %></h1>
-  <p><%= data.bio %></p>
+  <div class="card-content">
+    <img class="card-item fade-in" src="<%= data.avatar %>" alt="DORYA">
+    <h1 class="card-item fade-in"><%= data.name + " " + data.surname %></h1>
+    <p class="card-item fade-in"><%= data.bio %></p>
+    <button class="card-item fade-in">
+      <i class='bx bx-right-arrow'></i>  
+    </button>
+  </div>
 </div>
 
-<!-- <section>
-  
-</section> -->
+<!-- <div id="card">
+  <div class="card-content">
+    <img src="<%= data.avatar %>" alt="DORYA">
+    <h1><%= data.name + " " + data.surname %></h1>
+    <p><%= data.bio %></p>
+  </div>
+</div>
 
+<div id="card">
+  <div class="card-content">
+    <img src="<%= data.avatar %>" alt="DORYA">
+    <h1><%= data.name + " " + data.surname %></h1>
+    <p><%= data.bio %></p>
+  </div>
+</div> -->
+
+
+<script src="scripts/script.js"></script>
 <%- include('./partials/foot') %>
