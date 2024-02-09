@@ -1,5 +1,3 @@
-
-// const alternateContent = document.getElementById("card");
 const 
 cardContent = document.querySelectorAll(".card-item"),
 alternateButton = document.querySelector("button"),
