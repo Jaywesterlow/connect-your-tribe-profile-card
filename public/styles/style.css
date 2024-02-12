@@ -6,9 +6,13 @@
 
 :root {
   --bg-color: #131C1D;
+  --color-white: #fff;
+
   --card-clr: #25373A;
   --alt-card-clr: #3E1929;
-
+  --widget-hover-clr: rgb(63, 30, 70);
+  
+  --clr-1: #925fbb;
   --clr-1: #925fbb;
   --clr-2: #42858C;
   --clr-3: #5DA399;
@@ -17,7 +21,6 @@
   --clr-6: #52EEE5;
   --clr-7: #44EBB5;
   
-  --alt-clr-1: #925fbb;
   --alt-clr-2: #8c4242;
   --alt-clr-3: #a35d5d;
   --alt-clr-4: #b86060;
@@ -37,12 +40,17 @@ html {
 body {
   height: 100vh;
   font-family: "Montserrat";
-  color: #fff;
-  text-shadow: 0 0 10px #fff;
+  color: var(--color-white);
+  text-shadow: 0 0 10px var(--color-white);
   overflow: hidden;
   background-color: var(--bg-color);
   display: grid;
   place-content: center;
+}
+
+main {
+  height: 100%;
+  width: 100%;
 }
 
 @property --gradient-angle {
@@ -63,41 +71,40 @@ body {
   border-radius: 1rem;
   position: relative;
   transition: 1s all ease-out;
-}
 
-#card::before, #card::after {
-  content: "";
-  position: absolute;
-  inset: -.3rem;
-  z-index: -1;
-  border-radius: 1.2rem;
-  background: conic-gradient(
-    from var(--gradient-angle),
-    var(--clr-7),
-    var(--clr-6),
-    var(--clr-5),
-    var(--clr-4),
-    var(--clr-3),
-    var(--clr-2),
-    var(--clr-1),
-    var(--clr-1),
-    var(--clr-2),
-    var(--clr-3),
-    var(--clr-4),
-    var(--clr-5),
-    var(--clr-6),
-    var(--clr-7));
-  animation: rotation 10s linear infinite;
-  transition: 5s all ease-out;
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    inset: -.3rem;
+    z-index: -1;
+    border-radius: 1.2rem;
+    background: conic-gradient(
+      from var(--gradient-angle),
+      var(--clr-7),
+      var(--clr-6),
+      var(--clr-5),
+      var(--clr-4),
+      var(--clr-3),
+      var(--clr-2),
+      var(--clr-1),
+      var(--clr-1),
+      var(--clr-2),
+      var(--clr-3),
+      var(--clr-4),
+      var(--clr-5),
+      var(--clr-6),
+      var(--clr-7));
+    animation: rotation 10s linear infinite;
+    transition: 5s all ease-out;
+  }
 }
 
 #card.alternate {
   background-color: var(--alt-card-clr);
   transition: 1s all ease-out;
-}
 
-#card.alternate::before, #card.alternate::after {
-  background: conic-gradient(
+  &::before, &::after {
+    background: conic-gradient(
     from var(--gradient-angle),
     var(--alt-clr-7),
     var(--alt-clr-6),
@@ -105,8 +112,8 @@ body {
     var(--alt-clr-4),
     var(--alt-clr-3),
     var(--alt-clr-2),
-    var(--alt-clr-1),
-    var(--alt-clr-1),
+    var(--clr-1),
+    var(--clr-1),
     var(--alt-clr-2),
     var(--alt-clr-3),
     var(--alt-clr-4),
@@ -114,6 +121,7 @@ body {
     var(--alt-clr-6),
     var(--alt-clr-7));
     transition: 5s all ease-out;
+  }
 }
 
 #card::after {
@@ -132,56 +140,108 @@ body {
   overflow: hidden;
 }
 
-img {
+.card-content > img {
   position: absolute;
-  transition: .6s .3s all ease-out;
   border-radius: 100%;
   width: 50%;
   top: 10%;
   opacity: 1;
 
   &.fade-in {
-    transition: .8s all ease-out;
     top: 15%;
     opacity: 0;
+  }
+
+  &.fade-in-transition {
+    transition: .6s .3s all ease-out;
   }
 }
 
 h1 {
-  color: var(--clr-6);
-  text-shadow: 0 0 10px var(--clr-6);
   position: absolute;
-  transition: .6s  .2s all ease-out;
   top: 50%;
   opacity: 1;
 
   &.fade-in {
-    transition: .8s .2s all ease-out;
     top: 55%;
     opacity: 0;
   }
+
+  &.fade-in-transition {
+    transition: .6s  .2s all ease-out;
+  }
 } 
 
-#card.alternate h1 {
-  color: var(--alt-clr-6);
-  text-shadow: 0 0 10px var(--alt-clr-6);
-}
 
 p {
   max-width: calc(100% - 2rem);
   position: absolute;
-  transition: .6s .1s all ease-out;
   top: 60%;
   opacity: 1;
 
   &.fade-in {
-    transition: .8s .4s all ease-out;
     top: 65%;
     opacity: 0;
   }
-}  
+
+  &.fade-in-transition {
+    transition: .6s  .1s all ease-out;
+  }  
+}
+
+.card-content > img, h1, p {
+  transition: .6s all ease-out;
+}
+
+#card.alternate .card-content > img, #card.alternate h1, #card.alternate p {
+  /* left: -50%; */
+  opacity: 0;
+}
+
+ul {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 4rem;
+  left: 100%;
+  transition: .8s all ease-out;
+
+
+  li {
+    list-style-type: none;
+    background-color: var(--alt-clr-6);
+    box-shadow: 
+    0 0 10px var(--alt-clr-6);
+    width: 45%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: .4s all ease-out;
+
+    &:hover {
+      background-color: var(--widget-hover-clr);
+      box-shadow: 
+      0 0 10px var(--clr-1),
+      0 0 15px var(--clr-1);
+    }
+  }
+}
+
+#card.alternate ul {
+  left: 0;
+}
 
 button {
+  color: var(--clr-6);
+  text-shadow: 0 0 10px var(--clr-6);
   position: absolute;
   transition: .6s all ease-out;
   bottom: 1rem;
@@ -189,6 +249,9 @@ button {
   background: none;
   border: none;
   border-radius: 100%;
+  padding: .5rem;
+  display: grid;
+  place-content: center;
   opacity: 1;
   cursor: pointer;
 
@@ -200,14 +263,38 @@ button {
 
   & i {
     font-size: 2rem;
-    color: #fff;
-    text-shadow: 0 0 10px #fff;
   }
 }
 
 #card.alternate button {
+  color: var(--alt-clr-6);
+  text-shadow: 0 0 10px var(--alt-clr-6);
   left: 5%;
   right: auto;
   transform: rotate(-180deg);
   transition: .8s all ease-out;
+}
+
+@media screen and (max-width: 768px) {
+
+  #card {
+    max-width: 400px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+
+  #card {
+    max-width: 300px;
+    height: 60vh;
+  }
+
+  h1 {
+    top: 45%;
+  } 
+  
+  
+  p {
+    top: 55%;
+  }
 }

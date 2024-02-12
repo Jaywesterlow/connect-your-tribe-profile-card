@@ -11,6 +11,9 @@ alternateButton.addEventListener("click", alternateCard);
 function fadeIn(){
   cardContent.forEach((i) => {
     i.classList.remove('fade-in')
+    setTimeout(() => {
+      i.classList.remove('fade-in-transition')
+    }, 1250);
   })
 }
 

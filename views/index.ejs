@@ -1,17 +1,27 @@
 <%- include('./partials/head') %>
 
-
-
-<section id="card">
-  <div class="card-content">
-    <img class="card-item fade-in" src="<%= data.avatar %>" alt="DORYA">
-    <h1 class="card-item fade-in"><%= data.name + " " + data.surname %></h1>
-    <p class="card-item fade-in"><%= data.bio %></p>
+<main>
+  <section id="card">
+    <div class="card-content">
+      <img class="card-item fade-in fade-in-transition" src="<%= data.avatar %>" alt="DORYA">
+      <h1 class="card-item fade-in fade-in-transition"><%= data.name + " " + data.surname %></h1>
+      <p class="card-item fade-in fade-in-transition"><%= data.bio %></p>
+      <ul>
+        <li><img src="<%= data.custom.github_image %>" alt="">List item</li>
+        <li><img src="<%= data.custom.discord_image %>" alt="">List item</li>
+        <li><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="">List item</li>
+      </ul>
+    </div>
+  
+    <!-- <%= data.custom.linkedin_image %> -->
+  
     <button class="card-item fade-in">
-      <i class='bx bx-right-arrow'></i>  
+      <i class='bx bx-right-arrow'></i>
     </button>
-  </div>
-</section>
+  
+  </section>
+</main>
+
 
 <script src="scripts/script.js"></script>
 <%- include('./partials/foot') %>
